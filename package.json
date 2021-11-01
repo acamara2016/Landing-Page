@@ -1,0 +1,36 @@
+{
+  "name": "Landing-Page",
+  "version": "1.0.0",
+  "description": "[Landing Page](https://www.tailwindtoolbox.com/templates/landing-page) is an open source, generic landing page template for [Tailwind CSS](https://tailwindcss.com/) created by [Tailwind Toolbox](https://www.tailwindtoolbox.com/).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev":"nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acamara2016/Landing-Page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-mongodb-session": "^3.1.1",
+    "dotenv": "^6.1.0",
+    "ejs": "^3.1.6",
+    "express": "^4.16.4",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.7",
+    "nodemon": "^2.0.14",
+    "shortid": "^2.2.16",
+    "stripe": "^8.184.0"
+  },
+  "bugs": {
+    "url": "https://github.com/acamara2016/Landing-Page/issues"
+  },
+  "homepage": "https://github.com/acamara2016/Landing-Page#readme"
+}

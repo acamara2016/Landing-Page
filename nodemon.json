@@ -1,0 +1,8 @@
+{
+    "env": {
+        "MONGO_USER": "url_member",
+        "MONGO_PASSWORD": "3cVwtPLUEbzMO46I",
+        "MONGO_DEFAULT_DATABASE": "url",
+        "STRIPE_KEY": "pk_test_eyJ59I5dwRJChpHG92d3apnF00hKX8fGUN"
+    }
+  }
