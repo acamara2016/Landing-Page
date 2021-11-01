@@ -50,11 +50,12 @@ exports.shortenUrl = (req, res, next) => {
 
 exports.clickUrl = ( req, res, next) => {
     const shorten_url = req.params.url;
-    ShortUrl.findOne({shorten_url:shorten_url})
-    .then(url=>{
-        url.clicks++;
-        url.date = new Date();
-        url.save()
-        return res.redirect(url.original_url)
+    ShortUrl.findOne({shorten_url:shorten_url}).then(url=>{
+        if(url!==null){
+            url.clicks++;
+            url.date = new Date();
+            url.save()
+            return res.redirect(url.original_url)
+        }
     }).catch(err => console.log(err));
 }
