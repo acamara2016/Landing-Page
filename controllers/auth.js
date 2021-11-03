@@ -61,6 +61,7 @@ exports.postLogin = (req, res, next) => {
   exports.postSignup = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
+    const fullname = req.body.fullname;
     const confirmPassword = req.body.confirmPassword;
     User.findOne({ email: email })
       .then(userDoc => {
@@ -72,6 +73,7 @@ exports.postLogin = (req, res, next) => {
           .hash(password, 12)
           .then(hashedPassword => {
             const user = new User({
+              fullname: fullname,
               email: email,
               password: hashedPassword,
             });

@@ -44,9 +44,16 @@ const urlRouter = require('./routes/url')
 const dashboardRouter = require('./routes/dashboard')
 //ROUTES
 app.use('/login', loginRouter)
-app.use('/dashboard', dashboardRouter)
+app.use('/', dashboardRouter)
 app.use('/register', registerRouter)
 app.use('/', urlRouter)
+var getIP = require('ipware')().get_ip;
+app.use(function(req, res, next) {
+    var ipInfo = getIP(req);
+    console.log(ipInfo);
+    // { clientIp: '127.0.0.1', clientIpRoutable: false }
+    next();
+});
 app.use((req, res, next)=>{
     if(!req.session.user){
         return next();

@@ -38,14 +38,26 @@ exports.shortenUrl = (req, res, next) => {
         shorten_url = shortId.generate()
     }
     const original_url = req.body.original_url
-    const url = new ShortUrl({
-        original_url: original_url,
-        shorten_url: shorten_url,
-        clicks: 0
-    })
-    console.log(url);
-    url.save();
-    res.redirect('/success/'+shorten_url)
+    if(req.session.user!==null){
+        const url = new ShortUrl({
+            original_url: original_url,
+            shorten_url: shorten_url,
+            clicks: 0,
+            by: req.session.user._id
+        })
+        console.log(url);
+        url.save();
+        res.redirect('/links')
+    }else if(req.session.user===null){
+        const url = new ShortUrl({
+            original_url: original_url,
+            shorten_url: shorten_url,
+            clicks: 0,
+        })
+        console.log(url);
+        url.save();
+        res.redirect('/success/'+shorten_url)
+    }
 }
 
 exports.clickUrl = ( req, res, next) => {

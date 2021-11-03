@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const urlController = require('../controllers/url')
+const isAuth = require('../middlewares/isAuth')
 router.get('/:url', urlController.clickUrl)
 router.get('/', urlController.getIndex)
 router.post('/shorten', urlController.shortenUrl)

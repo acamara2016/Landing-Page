@@ -7,7 +7,12 @@ const url = new Schema({
 	original_url: { type: String },
 	shorten_url: { type: String },
     date: { type: Date},
-	clicks: { type: Number }
+	clicks: { type: Number },
+	by: {
+		type: Schema.Types.ObjectId,
+		ref: 'users',
+		required: false
+	}
 })
 
 

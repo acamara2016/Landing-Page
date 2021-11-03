@@ -25,6 +25,7 @@
     "ejs": "^3.1.6",
     "express": "^4.16.4",
     "express-session": "^1.17.2",
+    "ipware": "^2.0.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.7",
     "nodemailer": "^6.7.0",

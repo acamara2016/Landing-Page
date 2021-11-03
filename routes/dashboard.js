@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const dashboardController = require('../controllers/dashboard')
-
-router.get('/', dashboardController.getDashboard)
+const authController = require('../controllers/auth')
+const isAuth = require('../middlewares/isAuth')
+router.get('/dashboard',isAuth, dashboardController.getDashboard)
+router.get('/links',isAuth, dashboardController.getLinks)
+router.post('/logout', authController.postLogout)
  
 module.exports = router;

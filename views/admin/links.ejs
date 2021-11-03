@@ -1,0 +1,85 @@
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+        <!-- Topbar -->
+            <%- include ('./includes/topbar.ejs') %>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <form style="text-align: center;" action="/shorten" method="post">
+                    <br/>
+                    <div class="mb-4">
+                      <label for="username">
+                        Original URL
+                      </label>
+                      <br/>
+                      <input id="username" name="original_url" type="text" placeholder="">
+                    </div>
+                    <div class="mb-6">
+                      <label for="password">
+                        Preffered URL (Optional)
+                      </label>
+                      <br/>
+                      <input id="preffered" name="preffered_url" type="text" placeholder="">
+                      
+                    </div>
+                    <br/>
+                    <div class="flex items-center justify-between">
+                      <button class="btn btn-primary" type="submit">
+                        Generate URL
+                      </button>
+                    </div>
+                  </form>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        
+                        <p class="h3 mb-2 text-gray-800">List of generated links</p>
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Generated url</th>
+                                    <th>Original url</th>
+                                    <th>Domain</th>
+                                    <th>Clicks</th>
+                                    <th>Latest click</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (let url of urls) { %>
+                                    <tr>
+                                        <td>http://localhost:3000/<%= url.shorten_url %></td>
+                                        <td><%= url.original_url %></td>
+                                        <td><%= domain %></td>
+                                        <td><%= url.clicks %></td>
+                                        <td>2011/04/25</td>
+                                    </tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; URL-CUTTER 2021</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+</div>
