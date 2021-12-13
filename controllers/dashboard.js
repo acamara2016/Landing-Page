@@ -1,8 +1,6 @@
 const User = require('../models/User')
 const Url = require('../models/Url')
 exports.getDashboard = (req, res, next)=>{
-    var ip = req.ip;
-    console.log(ip);
     const id = req.session.user._id.toString()
     Url.find({by:id}).then(urls=>{
         res.render('admin/pages/links',{
@@ -13,6 +11,7 @@ exports.getDashboard = (req, res, next)=>{
             user: req.session.user
         })
     })
+    next();
 }
 
 exports.getLinks = (req, res, next) => {
@@ -28,4 +27,5 @@ exports.getLinks = (req, res, next) => {
             user: req.session.user
         })
     })
+    next();
 }

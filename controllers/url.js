@@ -9,6 +9,7 @@ exports.getIndex = (req, res, next) => {
             path: '/'
         })
     })
+    
 }
 
 exports.getAbout = (req, res, next) => {
@@ -34,11 +35,11 @@ exports.getSuccess = ( req, res, next) => {
 exports.shortenUrl = (req, res, next) => {
     const preffered_url = req.body.preffered_url
     var shorten_url = req.body.preffered_url
-    if(preffered_url === undefined){
+    if(preffered_url.length === 0){
         shorten_url = shortId.generate()
     }
     const original_url = req.body.original_url
-    if(req.session.user!==null){
+    if(req.session.user!==undefined){
         const url = new ShortUrl({
             original_url: original_url,
             shorten_url: shorten_url,
@@ -48,7 +49,7 @@ exports.shortenUrl = (req, res, next) => {
         console.log(url);
         url.save();
         res.redirect('/links')
-    }else if(req.session.user===null){
+    }else if(req.session.user===undefined){
         const url = new ShortUrl({
             original_url: original_url,
             shorten_url: shorten_url,

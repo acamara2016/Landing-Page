@@ -9,7 +9,7 @@ const isAuth = require('../middlewares/isAuth')
  * username OR email required
 */
 router.post('/', authController.postLogin)
-router.get('/', isAuth, authController.getLogin)
+router.get('/', authController.getLogin)
  
 
 module.exports = router
